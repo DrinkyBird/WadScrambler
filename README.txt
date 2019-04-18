@@ -17,6 +17,7 @@ Some things to note:
 * I hacked this tool together in a few hours and it's possibly likely to miss things or break. I know
   it's definitely going miss some lumps that would fall under the "Misc graphics" category, but
   they're hard to detect anyway, so...
+* Map vertex scrambling does not work on UDMF maps
 * Speaking of, Misc graphics option currently picks up:
   * Doom's standard fonts
   * Menu graphics
