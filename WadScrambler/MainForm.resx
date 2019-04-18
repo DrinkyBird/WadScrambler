@@ -120,14 +120,4 @@
   <metadata name="openFile.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="label1.Text" xml:space="preserve">
-    <value>This stupid fucking tool does some dumb shit and
-fucks up the file offsets of lumps in a WAD file
-
-Running this tool on a WAD file WILL cause
-irreversible damage, so back your shit up
-
-Cheers and may God have mercy on our souls
-</value>
-  </data>
 </root>

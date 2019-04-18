@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tbWadFile = new System.Windows.Forms.TextBox();
             this.btnOpenFile = new System.Windows.Forms.Button();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
             this.btnScramble = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbScrambleSprites = new System.Windows.Forms.CheckBox();
-            this.cbScrambleFlats = new System.Windows.Forms.CheckBox();
-            this.cbScramblePatches = new System.Windows.Forms.CheckBox();
-            this.cbScrambleSounds = new System.Windows.Forms.CheckBox();
-            this.cbScrambleAllGfx = new System.Windows.Forms.CheckBox();
+            this.cbScrambleMusic = new System.Windows.Forms.CheckBox();
             this.cbScrambleMiscGfx = new System.Windows.Forms.CheckBox();
+            this.cbScrambleAllGfx = new System.Windows.Forms.CheckBox();
+            this.cbScrambleSounds = new System.Windows.Forms.CheckBox();
+            this.cbScramblePatches = new System.Windows.Forms.CheckBox();
+            this.cbScrambleFlats = new System.Windows.Forms.CheckBox();
+            this.cbScrambleSprites = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbScrambleMusic = new System.Windows.Forms.CheckBox();
+            this.llGithubUrl = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -107,10 +107,80 @@
             this.groupBox2.Controls.Add(this.cbScrambleSprites);
             this.groupBox2.Location = new System.Drawing.Point(12, 71);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(177, 179);
+            this.groupBox2.Size = new System.Drawing.Size(177, 181);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Scramble what?";
+            // 
+            // cbScrambleMusic
+            // 
+            this.cbScrambleMusic.AutoSize = true;
+            this.cbScrambleMusic.Checked = true;
+            this.cbScrambleMusic.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbScrambleMusic.Location = new System.Drawing.Point(7, 158);
+            this.cbScrambleMusic.Name = "cbScrambleMusic";
+            this.cbScrambleMusic.Size = new System.Drawing.Size(56, 17);
+            this.cbScrambleMusic.TabIndex = 6;
+            this.cbScrambleMusic.Text = "Music";
+            this.cbScrambleMusic.UseVisualStyleBackColor = true;
+            // 
+            // cbScrambleMiscGfx
+            // 
+            this.cbScrambleMiscGfx.AutoSize = true;
+            this.cbScrambleMiscGfx.Checked = true;
+            this.cbScrambleMiscGfx.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbScrambleMiscGfx.Location = new System.Drawing.Point(7, 89);
+            this.cbScrambleMiscGfx.Name = "cbScrambleMiscGfx";
+            this.cbScrambleMiscGfx.Size = new System.Drawing.Size(167, 17);
+            this.cbScrambleMiscGfx.TabIndex = 5;
+            this.cbScrambleMiscGfx.Text = "Other graphics (menus, etc)";
+            this.cbScrambleMiscGfx.UseVisualStyleBackColor = true;
+            // 
+            // cbScrambleAllGfx
+            // 
+            this.cbScrambleAllGfx.AutoSize = true;
+            this.cbScrambleAllGfx.Location = new System.Drawing.Point(7, 112);
+            this.cbScrambleAllGfx.Name = "cbScrambleAllGfx";
+            this.cbScrambleAllGfx.Size = new System.Drawing.Size(86, 17);
+            this.cbScrambleAllGfx.TabIndex = 4;
+            this.cbScrambleAllGfx.Text = "All graphics";
+            this.cbScrambleAllGfx.UseVisualStyleBackColor = true;
+            // 
+            // cbScrambleSounds
+            // 
+            this.cbScrambleSounds.AutoSize = true;
+            this.cbScrambleSounds.Checked = true;
+            this.cbScrambleSounds.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbScrambleSounds.Location = new System.Drawing.Point(7, 135);
+            this.cbScrambleSounds.Name = "cbScrambleSounds";
+            this.cbScrambleSounds.Size = new System.Drawing.Size(65, 17);
+            this.cbScrambleSounds.TabIndex = 3;
+            this.cbScrambleSounds.Text = "Sounds";
+            this.cbScrambleSounds.UseVisualStyleBackColor = true;
+            // 
+            // cbScramblePatches
+            // 
+            this.cbScramblePatches.AutoSize = true;
+            this.cbScramblePatches.Checked = true;
+            this.cbScramblePatches.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbScramblePatches.Location = new System.Drawing.Point(7, 66);
+            this.cbScramblePatches.Name = "cbScramblePatches";
+            this.cbScramblePatches.Size = new System.Drawing.Size(65, 17);
+            this.cbScramblePatches.TabIndex = 2;
+            this.cbScramblePatches.Text = "Patches";
+            this.cbScramblePatches.UseVisualStyleBackColor = true;
+            // 
+            // cbScrambleFlats
+            // 
+            this.cbScrambleFlats.AutoSize = true;
+            this.cbScrambleFlats.Checked = true;
+            this.cbScrambleFlats.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbScrambleFlats.Location = new System.Drawing.Point(7, 43);
+            this.cbScrambleFlats.Name = "cbScrambleFlats";
+            this.cbScrambleFlats.Size = new System.Drawing.Size(50, 17);
+            this.cbScrambleFlats.TabIndex = 1;
+            this.cbScrambleFlats.Text = "Flats";
+            this.cbScrambleFlats.UseVisualStyleBackColor = true;
             // 
             // cbScrambleSprites
             // 
@@ -124,66 +194,9 @@
             this.cbScrambleSprites.Text = "Sprites";
             this.cbScrambleSprites.UseVisualStyleBackColor = true;
             // 
-            // cbScrambleFlats
-            // 
-            this.cbScrambleFlats.AutoSize = true;
-            this.cbScrambleFlats.Checked = true;
-            this.cbScrambleFlats.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbScrambleFlats.Location = new System.Drawing.Point(7, 44);
-            this.cbScrambleFlats.Name = "cbScrambleFlats";
-            this.cbScrambleFlats.Size = new System.Drawing.Size(50, 17);
-            this.cbScrambleFlats.TabIndex = 1;
-            this.cbScrambleFlats.Text = "Flats";
-            this.cbScrambleFlats.UseVisualStyleBackColor = true;
-            // 
-            // cbScramblePatches
-            // 
-            this.cbScramblePatches.AutoSize = true;
-            this.cbScramblePatches.Checked = true;
-            this.cbScramblePatches.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbScramblePatches.Location = new System.Drawing.Point(7, 67);
-            this.cbScramblePatches.Name = "cbScramblePatches";
-            this.cbScramblePatches.Size = new System.Drawing.Size(65, 17);
-            this.cbScramblePatches.TabIndex = 2;
-            this.cbScramblePatches.Text = "Patches";
-            this.cbScramblePatches.UseVisualStyleBackColor = true;
-            // 
-            // cbScrambleSounds
-            // 
-            this.cbScrambleSounds.AutoSize = true;
-            this.cbScrambleSounds.Checked = true;
-            this.cbScrambleSounds.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbScrambleSounds.Location = new System.Drawing.Point(7, 136);
-            this.cbScrambleSounds.Name = "cbScrambleSounds";
-            this.cbScrambleSounds.Size = new System.Drawing.Size(65, 17);
-            this.cbScrambleSounds.TabIndex = 3;
-            this.cbScrambleSounds.Text = "Sounds";
-            this.cbScrambleSounds.UseVisualStyleBackColor = true;
-            // 
-            // cbScrambleAllGfx
-            // 
-            this.cbScrambleAllGfx.AutoSize = true;
-            this.cbScrambleAllGfx.Location = new System.Drawing.Point(7, 113);
-            this.cbScrambleAllGfx.Name = "cbScrambleAllGfx";
-            this.cbScrambleAllGfx.Size = new System.Drawing.Size(130, 17);
-            this.cbScrambleAllGfx.TabIndex = 4;
-            this.cbScrambleAllGfx.Text = "All graphics (crashy!)";
-            this.cbScrambleAllGfx.UseVisualStyleBackColor = true;
-            // 
-            // cbScrambleMiscGfx
-            // 
-            this.cbScrambleMiscGfx.AutoSize = true;
-            this.cbScrambleMiscGfx.Checked = true;
-            this.cbScrambleMiscGfx.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbScrambleMiscGfx.Location = new System.Drawing.Point(7, 90);
-            this.cbScrambleMiscGfx.Name = "cbScrambleMiscGfx";
-            this.cbScrambleMiscGfx.Size = new System.Drawing.Size(164, 17);
-            this.cbScrambleMiscGfx.TabIndex = 5;
-            this.cbScrambleMiscGfx.Text = "Other graphics (menus etc)";
-            this.cbScrambleMiscGfx.UseVisualStyleBackColor = true;
-            // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.llGithubUrl);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Location = new System.Drawing.Point(196, 71);
             this.groupBox3.Name = "groupBox3";
@@ -197,25 +210,27 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(7, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(265, 91);
+            this.label1.Size = new System.Drawing.Size(274, 52);
             this.label1.TabIndex = 0;
-            this.label1.Text = resources.GetString("label1.Text");
+            this.label1.Text = "Please read the included README before using this!\r\n\r\nRunning this tool on a WAD " +
+    "file WILL cause\r\nirreversible damage, so back your shit up\r\n";
             // 
-            // cbScrambleMusic
+            // llGithubUrl
             // 
-            this.cbScrambleMusic.AutoSize = true;
-            this.cbScrambleMusic.Location = new System.Drawing.Point(7, 156);
-            this.cbScrambleMusic.Name = "cbScrambleMusic";
-            this.cbScrambleMusic.Size = new System.Drawing.Size(56, 17);
-            this.cbScrambleMusic.TabIndex = 6;
-            this.cbScrambleMusic.Text = "Music";
-            this.cbScrambleMusic.UseVisualStyleBackColor = true;
+            this.llGithubUrl.AutoSize = true;
+            this.llGithubUrl.Location = new System.Drawing.Point(6, 83);
+            this.llGithubUrl.Name = "llGithubUrl";
+            this.llGithubUrl.Size = new System.Drawing.Size(213, 13);
+            this.llGithubUrl.TabIndex = 1;
+            this.llGithubUrl.TabStop = true;
+            this.llGithubUrl.Text = "https://github.com/csnxs/WadScrambler";
+            this.llGithubUrl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 262);
+            this.ClientSize = new System.Drawing.Size(484, 260);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -252,6 +267,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox cbScrambleMusic;
+        private System.Windows.Forms.LinkLabel llGithubUrl;
     }
 }
 
