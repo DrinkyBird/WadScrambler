@@ -19,14 +19,20 @@ namespace WadScrambler
     {
         private static readonly string[] START_MARKERS = new string[] {
             "F_START",
+            "FF_START",
             "S_START",
+            "SS_START",
             "P_START",
+            "PP_START",
         };
 
         private static readonly string[] END_MARKERS = new string[] {
             "F_END",
+            "FF_END",
             "S_END",
+            "SS_END",
             "P_END",
+            "PP_END",
         };
 
         public string FileName { get; private set; }
@@ -101,6 +107,16 @@ namespace WadScrambler
                 int numLumps = reader.ReadInt32();
                 int infoTableOfs = reader.ReadInt32();
 
+                if (numLumps < 0)
+                {
+                    throw new InvalidDataException("numLumps < 0");
+                }
+
+                if (infoTableOfs < 0)
+                {
+                    throw new InvalidDataException("infoTableOfs < 0");
+                }
+
                 Lumps.Clear();
                 Lumps.Capacity = numLumps;
 
@@ -117,6 +133,16 @@ namespace WadScrambler
                         Size = reader.ReadInt32(),
                         Name = ReadLumpName(reader)
                     };
+
+                    if (entry.FilePos < 12)
+                    {
+                        throw new InvalidDataException("filePos < 12 (for lump " + entry.Name + ")");
+                    }
+
+                    if (entry.Size < 0)
+                    {
+                        throw new InvalidDataException("size < 0 (for lump " + entry.Name + ")");
+                    }
 
                     if (IsStartMarker(entry.Name))
                     {
@@ -139,17 +165,20 @@ namespace WadScrambler
                     switch (section)
                     {
                         case "F_START":
+                        case "FF_START":
                         {
                             Flats.Add(entry);
                             break;
                         }
                         case "S_START":
+                        case "SS_START":
                         {
                             Sprites.Add(entry);
                             AllGraphics.Add(entry);
                             break;
                         }
                         case "P_START":
+                        case "PP_START":
                         {
                             Patches.Add(entry);
                             AllGraphics.Add(entry);
