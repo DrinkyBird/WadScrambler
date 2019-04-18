@@ -307,5 +307,68 @@ namespace WadScrambler
 
             return false;
         }
+
+        public int ReadLump(WadEntry entry, byte[] dest, int len)
+        {
+            int size = Math.Min(len, entry.Size);
+            if (size < 1)
+            {
+                return 0;
+            }
+
+            using (FileStream stream = new FileStream(FileName, FileMode.Open))
+            {
+                stream.Seek(entry.FilePos, SeekOrigin.Begin);
+
+                return stream.Read(dest, 0, size);
+            }
+        }
+
+        public void ScrambleVerts()
+        {
+            Random r = new Random((int)DateTime.Now.Ticks);
+            for (int i = 0; i < Lumps.Count; i++)
+            {
+                WadEntry lump = Lumps[i];
+
+                if (lump.Name != "VERTEXES")
+                {
+                    continue;
+                }
+
+                if (lump.Size % 4 != 0)
+                {
+                    throw new InvalidDataException("VERTEXES lumps at " + lump.FilePos + " is of invalid size!");
+                }
+
+                byte[] ba = new byte[lump.Size];
+                short[] sa = new short[lump.Size / 2];
+                int read = ReadLump(lump, ba, lump.Size);
+
+                if (read != lump.Size)
+                {
+                    throw new InvalidDataException(String.Format(
+                        "Failed to read fully VERTEXES lump at 0x{0:x} (expected {1}, but read {2})", 
+                        lump.FilePos, lump.Size, read
+                    ));
+                }
+
+                Buffer.BlockCopy(ba, 0, sa, 0, ba.Length);
+
+                for (int j = 0; j < sa.Length; j++)
+                {
+                    sa[j] += (short)r.Next(-25, 25);
+                }
+
+                Buffer.BlockCopy(sa, 0, ba, 0, sa.Length); 
+                
+                using (FileStream stream = new FileStream(FileName, FileMode.Open))
+                {
+                    stream.Seek(lump.FilePos, SeekOrigin.Begin);
+
+                    stream.Write(ba, 0, ba.Length);
+                }
+            }
+        }
     }
 }

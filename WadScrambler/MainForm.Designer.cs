@@ -42,8 +42,9 @@
             this.cbScrambleFlats = new System.Windows.Forms.CheckBox();
             this.cbScrambleSprites = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.llGithubUrl = new System.Windows.Forms.LinkLabel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbScrambleVertices = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -77,7 +78,7 @@
             // btnScramble
             // 
             this.btnScramble.Enabled = false;
-            this.btnScramble.Location = new System.Drawing.Point(397, 227);
+            this.btnScramble.Location = new System.Drawing.Point(397, 249);
             this.btnScramble.Name = "btnScramble";
             this.btnScramble.Size = new System.Drawing.Size(75, 23);
             this.btnScramble.TabIndex = 3;
@@ -98,6 +99,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbScrambleVertices);
             this.groupBox2.Controls.Add(this.cbScrambleMusic);
             this.groupBox2.Controls.Add(this.cbScrambleMiscGfx);
             this.groupBox2.Controls.Add(this.cbScrambleAllGfx);
@@ -107,7 +109,7 @@
             this.groupBox2.Controls.Add(this.cbScrambleSprites);
             this.groupBox2.Location = new System.Drawing.Point(12, 71);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(177, 181);
+            this.groupBox2.Size = new System.Drawing.Size(177, 205);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Scramble what?";
@@ -205,16 +207,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Info";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(274, 52);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Please read the included README before using this!\r\n\r\nRunning this tool on a WAD " +
-    "file WILL cause\r\nirreversible damage, so back your shit up\r\n";
-            // 
             // llGithubUrl
             // 
             this.llGithubUrl.AutoSize = true;
@@ -226,11 +218,31 @@
             this.llGithubUrl.Text = "https://github.com/csnxs/WadScrambler";
             this.llGithubUrl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(274, 52);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Please read the included README before using this!\r\n\r\nRunning this tool on a WAD " +
+    "file WILL cause\r\nirreversible damage, so back your shit up\r\n";
+            // 
+            // cbScrambleVertices
+            // 
+            this.cbScrambleVertices.AutoSize = true;
+            this.cbScrambleVertices.Location = new System.Drawing.Point(7, 181);
+            this.cbScrambleVertices.Name = "cbScrambleVertices";
+            this.cbScrambleVertices.Size = new System.Drawing.Size(90, 17);
+            this.cbScrambleVertices.TabIndex = 7;
+            this.cbScrambleVertices.Text = "Map vertices";
+            this.cbScrambleVertices.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 260);
+            this.ClientSize = new System.Drawing.Size(484, 285);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -268,6 +280,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox cbScrambleMusic;
         private System.Windows.Forms.LinkLabel llGithubUrl;
+        private System.Windows.Forms.CheckBox cbScrambleVertices;
     }
 }
 

@@ -24,6 +24,8 @@ namespace WadScrambler
             cbScrambleMiscGfx.CheckedChanged += CheckScrambleButtonEventHandler;
             cbScrambleAllGfx.CheckedChanged += CheckScrambleButtonEventHandler;
             cbScrambleSounds.CheckedChanged += CheckScrambleButtonEventHandler;
+            cbScrambleMusic.CheckedChanged += CheckScrambleButtonEventHandler;
+            cbScrambleVertices.CheckedChanged += CheckScrambleButtonEventHandler;
             tbWadFile.TextChanged += CheckScrambleButtonEventHandler;
         }
 
@@ -72,6 +74,8 @@ namespace WadScrambler
                 scrambledGraphics += scrambledSprites + scrambledFlats + scrambledPatches + scrambledMiscGfx;
                 scrambledLumps = scrambledGraphics + scrambledSounds;
 
+                if (cbScrambleVertices.Checked) file.ScrambleVerts();
+
                 string mbox = "Scrambed WAD successfully.\n";
                 mbox += "Total scrambled lumps: " + scrambledLumps + "\n";
                 mbox += "\tTotal graphics: " + scrambledGraphics + "\n";
@@ -103,7 +107,9 @@ namespace WadScrambler
                     cbScramblePatches.Checked ||
                     cbScrambleMiscGfx.Checked ||
                     cbScrambleAllGfx.Checked ||
-                    cbScrambleSounds.Checked
+                    cbScrambleSounds.Checked ||
+                    cbScrambleVertices.Checked ||
+                    cbScrambleMusic.Checked
             );
 
             bool isText = !string.IsNullOrEmpty(tbWadFile.Text);
