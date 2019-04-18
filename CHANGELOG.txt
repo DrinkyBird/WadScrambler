@@ -1,3 +1,9 @@
+v1.1.0
+===============================================================================
+* Add map vertex scrambling
+* Add Options form with some fine tuning settings
+* WAD directory is written out before displaying the success message box (oops)
+
 v1.0.1
 ===============================================================================
 * Fixed a minor oversight with 0-length lumps

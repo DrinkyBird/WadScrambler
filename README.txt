@@ -1,4 +1,4 @@
-WadScrambler v1.0.1
+WadScrambler v1.1.0
    by NotTheActualSean
 
 WadScrambler is a tool that mutilates your WAD file, by swapping around the data of lumps of similar type.
@@ -11,8 +11,8 @@ Some things to note:
 * The "All graphics" option only works with source ports that do not expect an image to be in a
   specific format. It works fine in ZDoom and derivatives (e.g. GZDoom, Zandronum), but is likely
   to crash in "vanilla" ports (e.g. PrBoom)
-* If a mod defines a custom skin via ZDoom's S_SKIN/Zandronum's SKININFO lump, this is likely to
-  cause it to crash due to the sprites being mismatched. You should add these offending sprite to
+* If a WAD defines a custom skin via ZDoom's S_SKIN/Zandronum's SKININFO lump, this is likely to
+  cause it to crash due to the sprites being mismatched. You should add these offending sprites to
   the Excluded Lumps option (the first four characters will do).
 * I hacked this tool together in a few hours and it's possibly likely to miss things or break. I know
   it's definitely going miss some lumps that would fall under the "Misc graphics" category, but
