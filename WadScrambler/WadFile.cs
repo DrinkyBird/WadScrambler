@@ -134,7 +134,7 @@ namespace WadScrambler
                         Name = ReadLumpName(reader)
                     };
 
-                    if (entry.FilePos < 12)
+                    if (entry.FilePos < 12 && entry.Size > 0)
                     {
                         throw new InvalidDataException("filePos < 12 (for lump " + entry.Name + ")");
                     }
