@@ -51,24 +51,36 @@ namespace WadScrambler
                 file = new WadFile(tbWadFile.Text);
                 file.Read();
 
+                int scrambledSprites = 0;
+                int scrambledFlats = 0;
+                int scrambledPatches = 0;
+                int scrambledMiscGfx = 0;
+                int scrambledMusic = 0;
+
                 int scrambledGraphics = 0;
                 int scrambledSounds = 0;
                 int scrambledLumps = 0;
 
-                if (cbScrambleFlats.Checked) scrambledGraphics += file.ScrambleEntries(ref file.Flats);
-                if (cbScrambleSprites.Checked) scrambledGraphics += file.ScrambleEntries(ref file.Sprites);
-                if (cbScramblePatches.Checked) scrambledGraphics += file.ScrambleEntries(ref file.Patches);
-                if (cbScrambleMiscGfx.Checked) scrambledGraphics += file.ScrambleEntries(ref file.MiscGraphics);
+                if (cbScrambleFlats.Checked) scrambledFlats += file.ScrambleEntries(ref file.Flats);
+                if (cbScrambleSprites.Checked) scrambledSprites += file.ScrambleEntries(ref file.Sprites);
+                if (cbScramblePatches.Checked) scrambledPatches += file.ScrambleEntries(ref file.Patches);
+                if (cbScrambleMiscGfx.Checked) scrambledMiscGfx += file.ScrambleEntries(ref file.MiscGraphics);
                 if (cbScrambleAllGfx.Checked) scrambledGraphics += file.ScrambleEntries(ref file.AllGraphics);
                 if (cbScrambleSounds.Checked) scrambledSounds += file.ScrambleEntries(ref file.Sounds);
-                if (cbScrambleMusic.Checked) scrambledSounds += file.ScrambleEntries(ref file.Music);
+                if (cbScrambleMusic.Checked) scrambledMusic += file.ScrambleEntries(ref file.Music);
 
+                scrambledGraphics += scrambledSprites + scrambledFlats + scrambledPatches + scrambledMiscGfx;
                 scrambledLumps = scrambledGraphics + scrambledSounds;
 
                 string mbox = "Scrambed WAD successfully.\n";
                 mbox += "Total scrambled lumps: " + scrambledLumps + "\n";
-                mbox += "\tGraphics: " + scrambledGraphics + "\n";
+                mbox += "\tTotal graphics: " + scrambledGraphics + "\n";
+                mbox += "\tSprites: " + scrambledSprites + "\n";
+                mbox += "\tFlats: " + scrambledFlats + "\n";
+                mbox += "\tPatches: " + scrambledPatches + "\n";
+                mbox += "\tMisc. graphics: " + scrambledMiscGfx + "\n";
                 mbox += "\tSounds: " + scrambledSounds + "\n";
+                mbox += "\tMusic: " + scrambledMusic + "\n";
 
                 MessageBox.Show(mbox, "WadScrambler", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
