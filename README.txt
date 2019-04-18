@@ -1,4 +1,4 @@
-WadScrambler v1.0.0
+WadScrambler v1.0.1
    by NotTheActualSean
 
 WadScrambler is a tool that mutilates your WAD file, by swapping around the data of lumps of similar type.
