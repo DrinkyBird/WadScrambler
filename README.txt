@@ -15,8 +15,8 @@ Some things to note:
   cause it to crash due to the sprites being mismatched. No workaround is available so far, unless
   you want to open up your scrambled WAD in Slade and fix the sprites yourself...
 * I hacked this tool together in a few hours and it's possibly likely to miss things or break. I know
-  it's definitely miss some lumps that would fall under the "Misc graphics" category, but they're
-  hard to detect anyway, so...
+  it's definitely going miss some lumps that would fall under the "Misc graphics" category, but
+  they're hard to detect anyway, so...
 * Speaking of, Misc graphics option currently picks up:
   * Doom's standard fonts
   * Menu graphics
