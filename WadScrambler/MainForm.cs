@@ -86,9 +86,9 @@ namespace WadScrambler
                 mbox += "\tSounds: " + scrambledSounds + "\n";
                 mbox += "\tMusic: " + scrambledMusic + "\n";
 
-                MessageBox.Show(mbox, "WadScrambler", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 file.WriteEntries();
+
+                MessageBox.Show(mbox, "WadScrambler", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
