@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tbWadFile = new System.Windows.Forms.TextBox();
             this.btnOpenFile = new System.Windows.Forms.Button();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
@@ -45,6 +46,7 @@
             this.llGithubUrl = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.cbScrambleVertices = new System.Windows.Forms.CheckBox();
+            this.btnOptions = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -57,6 +59,7 @@
             this.tbWadFile.Name = "tbWadFile";
             this.tbWadFile.Size = new System.Drawing.Size(363, 23);
             this.tbWadFile.TabIndex = 0;
+            this.tbWadFile.TextChanged += new System.EventHandler(this.tbWadFile_TextChanged);
             // 
             // btnOpenFile
             // 
@@ -210,7 +213,7 @@
             // llGithubUrl
             // 
             this.llGithubUrl.AutoSize = true;
-            this.llGithubUrl.Location = new System.Drawing.Point(6, 83);
+            this.llGithubUrl.Location = new System.Drawing.Point(7, 125);
             this.llGithubUrl.Name = "llGithubUrl";
             this.llGithubUrl.Size = new System.Drawing.Size(213, 13);
             this.llGithubUrl.TabIndex = 1;
@@ -223,10 +226,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(7, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(274, 52);
+            this.label1.Size = new System.Drawing.Size(274, 91);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Please read the included README before using this!\r\n\r\nRunning this tool on a WAD " +
-    "file WILL cause\r\nirreversible damage, so back your shit up\r\n";
+            this.label1.Text = resources.GetString("label1.Text");
             // 
             // cbScrambleVertices
             // 
@@ -238,11 +240,22 @@
             this.cbScrambleVertices.Text = "Map vertices";
             this.cbScrambleVertices.UseVisualStyleBackColor = true;
             // 
+            // btnOptions
+            // 
+            this.btnOptions.Location = new System.Drawing.Point(316, 249);
+            this.btnOptions.Name = "btnOptions";
+            this.btnOptions.Size = new System.Drawing.Size(75, 23);
+            this.btnOptions.TabIndex = 7;
+            this.btnOptions.Text = "Options";
+            this.btnOptions.UseVisualStyleBackColor = true;
+            this.btnOptions.Click += new System.EventHandler(this.btnOptions_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 285);
+            this.Controls.Add(this.btnOptions);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -252,6 +265,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "WadScrambler";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -281,6 +295,7 @@
         private System.Windows.Forms.CheckBox cbScrambleMusic;
         private System.Windows.Forms.LinkLabel llGithubUrl;
         private System.Windows.Forms.CheckBox cbScrambleVertices;
+        private System.Windows.Forms.Button btnOptions;
     }
 }
 

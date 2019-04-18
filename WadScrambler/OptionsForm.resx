@@ -117,16 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="openFile.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Please read the included README before using this!
-
-Running this tool on a WAD file WILL cause
-irreversible damage, so back your shit up
-
-Press the Options button for some more
-fine-grained tuning</value>
-  </data>
 </root>

@@ -29,6 +29,11 @@ namespace WadScrambler
             tbWadFile.TextChanged += CheckScrambleButtonEventHandler;
         }
 
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            tbWadFile.Text = Properties.Settings.Default.LastWadFile;
+        }
+
         private void btnOpenFile_Click(object sender, EventArgs e)
         {
             DialogResult res = openFile.ShowDialog(this);
@@ -125,6 +130,18 @@ namespace WadScrambler
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(llGithubUrl.Text);
+        }
+
+        private void btnOptions_Click(object sender, EventArgs e)
+        {
+            OptionsForm form = new OptionsForm();
+            form.ShowDialog(this);
+        }
+
+        private void tbWadFile_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.LastWadFile = tbWadFile.Text;
+            Properties.Settings.Default.Save();
         }
     }
 }

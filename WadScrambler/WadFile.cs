@@ -244,7 +244,7 @@ namespace WadScrambler
 
                 // some ports (ie zdoom) will crash if the player sprite
                 // is incorrectly sized
-                if (list[i0].Name.StartsWith("PLAY") || list[i1].Name.StartsWith("PLAY"))
+                if (ShouldExcludeLump(list[i0].Name) || ShouldExcludeLump(list[i1].Name))
                 {
                     continue;
                 }
@@ -327,6 +327,7 @@ namespace WadScrambler
         public void ScrambleVerts()
         {
             Random r = new Random((int)DateTime.Now.Ticks);
+            int range = Properties.Settings.Default.VertexRandomiseRange;
             for (int i = 0; i < Lumps.Count; i++)
             {
                 WadEntry lump = Lumps[i];
@@ -357,7 +358,7 @@ namespace WadScrambler
 
                 for (int j = 0; j < sa.Length; j++)
                 {
-                    sa[j] += (short)r.Next(-25, 25);
+                    sa[j] += (short)r.Next(-range, range);
                 }
 
                 Buffer.BlockCopy(sa, 0, ba, 0, sa.Length); 
@@ -369,6 +370,20 @@ namespace WadScrambler
                     stream.Write(ba, 0, ba.Length);
                 }
             }
+        }
+
+        public bool ShouldExcludeLump(string name)
+        {
+            string[] ex = Properties.Settings.Default.ExcludeLumps.Split(';');
+            foreach (var prefix in ex)
+            {
+                if (name.StartsWith(prefix))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
